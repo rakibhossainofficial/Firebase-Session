@@ -50,7 +50,7 @@ const Navbar = () => {
         <a className="text-xl">daisyUI</a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="flex justify-between gap-9 px-1">
+        <ul className="flex justify-between gap-9 px-1 font-bold">
           <li>
             <NavLink to="/" className=" ">
               Home
