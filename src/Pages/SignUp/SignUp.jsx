@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router";
-
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/firebase.config";
+
+
 
 const SignUp = () => {
   const handleSubmit = (e) => {
@@ -16,9 +17,14 @@ const SignUp = () => {
     createUserWithEmailAndPassword(auth, email, password).then(
       (userCredential) => {
         const user = userCredential.user;
-        console.log(user);
+        alert("Sign Up Succesfully😀");
       }
-    );
+    )
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert("Error❗")
+    });
   };
 
   return (
@@ -33,7 +39,10 @@ const SignUp = () => {
         <form onSubmit={handleSubmit} className="space-y-12">
           <div className="space-y-4">
             <div>
-              <label htmlFor="text" className="block mb-2 text-sm text-gray-600">
+              <label
+                htmlFor="text"
+                className="block mb-2 text-sm text-gray-600"
+              >
                 Full Name
               </label>
               <input
@@ -42,11 +51,14 @@ const SignUp = () => {
                 id="name"
                 placeholder="John Doe"
                 required
-                className="w-full px-3 py-2  rounded-md border-2 border-gray-300 bg-white text-gray-100"
+                className="w-full px-3 py-2  rounded-md border-2 border-gray-300 bg-white"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block mb-2 text-sm text-gray-600">
+              <label
+                htmlFor="email"
+                className="block mb-2 text-sm text-gray-600"
+              >
                 Email address
               </label>
               <input
@@ -55,7 +67,7 @@ const SignUp = () => {
                 id="email"
                 required
                 placeholder="leroy@jenkins.com"
-                className="w-full px-3 py-2 border-2 border-gray-300 rounded-md  bg-white text-gray-100"
+                className="w-full px-3 py-2 border-2 border-gray-300 rounded-md  bg-white "
               />
             </div>
             <div>
@@ -70,7 +82,7 @@ const SignUp = () => {
                 id="password"
                 required
                 placeholder="*****"
-                className="w-full px-3 py-2 border-2 border-gray-300 rounded-md  bg-white text-gray-100"
+                className="w-full px-3 py-2 border-2 border-gray-300 rounded-md  bg-white "
               />
             </div>
             <div>
@@ -85,7 +97,7 @@ const SignUp = () => {
                 id="confirmpassword"
                 required
                 placeholder="*****"
-                className="w-full px-3 py-2 border-2 border-gray-300 rounded-md  bg-white text-gray-100"
+                className="w-full px-3 py-2 border-2 border-gray-300 rounded-md  bg-white "
               />
             </div>
           </div>
