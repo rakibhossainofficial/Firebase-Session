@@ -1,27 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/firebase.config";
-
+import { valueContext } from "../../RootLayout/RootLayout";
 
 const SignIn = () => {
+  const handleLogin = useContext(valueContext);
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("Form Submited");
     const email = e.target.email.value;
     const password = e.target.password.value;
-
     console.log(email, password);
-    
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        alert("Sign In successfully😀");
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert("Error❗");
-      });
+
+    handleLogin(email, password);
+
+
   };
 
   return (

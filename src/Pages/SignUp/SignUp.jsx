@@ -6,6 +6,7 @@ import { auth } from "../../firebase/firebase.config";
 
 
 const SignUp = () => {
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const fullname = e.target.fullname.value;
@@ -28,8 +29,8 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex items-center justify-center my-5 px-4 md:p-0222222">
-      <div className="flex  flex-col w-3xl  p-6 rounded-md sm:p-10 dark:bg-gray-100 dark:text-gray-800">
+    <div className="flex items-center justify-center my-5 px-4 md:p-2">
+      <div className="flex  flex-col w-2xl  p-6 rounded-md sm:p-10 dark:bg-gray-100 dark:text-gray-800">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Sign Up</h1>
           <p className="text-sm text-gray-400">
